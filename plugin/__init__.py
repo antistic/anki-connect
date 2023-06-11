@@ -1538,7 +1538,7 @@ class AnkiConnect:
             try:
                 card = self.getCard(cid)
                 card.start_timer()
-                scheduler.answerCard(cid, answer)
+                scheduler.answerCard(card, answer)
                 success.append(True)
             except NotFoundError:
                 success.append(False)

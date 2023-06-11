@@ -88,7 +88,7 @@ class TestAnswerCards:
         assert result == [False]
 
     def test_answerCards_with_invalid_answer(self, setup):
-        result = ac.answerCards(cards=[123], answers=["test"])
+        result = ac.answerCards(cards=setup.card_ids, answers=["test", -1, 10, None])
         assert result == [False]
 
     def test_answerCards_with_more_answers(self, setup):
