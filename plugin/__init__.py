@@ -1534,13 +1534,13 @@ class AnkiConnect:
     def answerCards(self, cards, answers):
         scheduler = self.scheduler()
         success = []
-        for cid, answer in zip(cards, answers, strict=True):
+        for cid, answer in zip(cards, answers):
             try:
                 card = self.getCard(cid)
                 card.start_timer()
                 scheduler.answerCard(cid, answer)
                 success.append(True)
-            except ValueError:
+            except NotFoundError:
                 success.append(False)
 
         return success
